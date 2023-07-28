@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:49:42 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/25 16:59:09 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/28 10:38:34 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
+/*Ici on herite de Scav et Frag*/
 class	DiamondTrap : public ScavTrap, public FragTrap
 {
 	public :
@@ -23,7 +24,7 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(DiamondTrap const& substitue);
 		DiamondTrap&	operator=(DiamondTrap const& substitue);
 		~DiamondTrap(void);
-		void	attack(std::string target);
+		void	attack(std::string const& target);
 		void	whoAmI(void);
 		
 	private :

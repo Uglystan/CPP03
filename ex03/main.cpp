@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:12:21 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/25 17:02:27 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/28 11:11:26 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 int	main(void)
 {
-	DiamondTrap	Diam("Diams");
+	DiamondTrap	Diam("Diam");
 	
 	Diam.whoAmI();
 	Diam.beRepaired(1);
-	Diam.attack("Lucas");
+	Diam.attack("Lucas");//Ici on utilisera de base la fonction de ScavTrap
+	Diam.ClapTrap::attack("Paul");//Ici si on souhaite grace a l'operateur de resolution de portee on peut utiliser attck de ClapTrap
 	Diam.guardGate();
+	Diam.highFivesGuys();
 	return (0);
 }

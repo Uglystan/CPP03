@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:00:18 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/25 16:59:56 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/28 10:38:56 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,25 @@ DiamondTrap::~DiamondTrap(void)
 	std::cout << "Destructor DiamondTrap called" << std::endl;
 }
 
+DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& substitue)
+{
+	std::cout << "Assignement operator DiamondTrap called" << std::endl;
+	if (this != &substitue)
+	{
+		_name = substitue._name;
+		_hitPoints = substitue._hitPoints;
+		_energyPoints = substitue._energyPoints;
+		_attackDamage = substitue._attackDamage;
+	}
+	return (*this);
+}
+
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "Name : " << _name << " Clap_name : " << ClapTrap::_name << std::endl;
 }
 
-void	DiamondTrap::attack(std::string target)
+void	DiamondTrap::attack(std::string const& target)
 {
 	ScavTrap::attack(target);
 }

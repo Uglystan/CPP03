@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:17:38 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/25 11:23:54 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/28 09:18:42 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_energyPoints > 0)
+	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage !" << std::endl;
 		_energyPoints -= 1;
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage !" << " / energy points : " << _energyPoints << std::endl;
 	}
 	else
 		std::cout << "ClapTrap " << _name << " don't have enough energy points !" << std::endl;
@@ -59,16 +59,19 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_hitPoints -= amount;	
 	}
 	else
+	{
 		std::cout << "ClapTrap" << _name << " is dead hit points : 0" << std::endl;
+		_hitPoints = 0;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energyPoints > 0)
+	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		std::cout << "ClapTrap " << _name << " repaired " << amount << " hit points : " << _hitPoints + amount << std::endl;
 		_energyPoints -= 1;
 		_hitPoints += amount;
+		std::cout << "ClapTrap " << _name << " repaired " << amount << " hit points : " << _hitPoints << " / energy points : " << _energyPoints << std::endl;
 	}
 	else
 		std::cout << "ClapTrap " << _name << " don't have enough energy points !" << std::endl;

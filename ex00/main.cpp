@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:12:21 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/25 12:05:24 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/07/28 09:13:41 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(void)
 	ClapTrap	Jack("Jack");
 	ClapTrap	Paul2(Paul);
 
-	Paul2 = Jack;	
+	Paul2 = Jack;
+	std::cout << std::endl;	
 	
 	Paul.attack("Jack");
 	Jack.takeDamage(1);
