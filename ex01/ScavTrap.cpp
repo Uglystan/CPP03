@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:38:20 by lgirault          #+#    #+#             */
-/*   Updated: 2023/07/28 08:58:50 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:29:21 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name)
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
 /*Ici on appele le constructeur de copie de la classe parent pour avoir les
-meme valeur on a fonc pas besoins de redeclarer les valeurs les constructeur
+meme valeur on a donc pas besoins de redeclarer les valeurs les constructeur
 de ClapTrap le fait pour nous*/
 ScavTrap::ScavTrap(ScavTrap const& substitue) : ClapTrap(substitue)
 {
@@ -51,8 +51,8 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (_energyPoints > 0)
 	{
-		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage !" << std::endl;
 		_energyPoints -= 1;
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage !" << " / energy points : " << _energyPoints << std::endl;
 	}
 	else
 		std::cout << "ScavTrap " << _name << " don't have enough energy points !" << std::endl;
